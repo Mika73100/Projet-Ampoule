@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,7 +24,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             
-                <button type="submit" action="valide.php" class="btn btn-primary mt-2">Submit</button>
+                <button type="submit" action="liste.php" class="btn btn-primary mt-2">Submit</button>
             </div>
         </form>
     </body>
