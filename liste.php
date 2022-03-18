@@ -2,25 +2,27 @@
 
 require_once 'connexion.php';
 
-try{
-    $prepare = $pdo->prepare("INSERT INTO exo 
+if (isset($_POST['ajouter'])) {
+    try {
+        $prepare = $pdo->prepare("INSERT INTO exo 
     (date,etage,position,prix) VALUES (:date, :etage, :position, :prix)");
 
-    $prepare->bindParam(':date', $_POST['date']);
-    $prepare->bindParam(':etage', $_POST['etage']);
-    $prepare->bindParam(':position', $_POST['position']);
-    $prepare->bindParam(':prix', $_POST['prix']);
-    $prepare->execute();
+        $prepare->bindParam(':date', $_POST['date']);
+        $prepare->bindParam(':etage', $_POST['etage']);
+        $prepare->bindParam(':position', $_POST['position']);
+        $prepare->bindParam(':prix', $_POST['prix']);
+        $prepare->execute();
 
-    header('Location:liste.php');
-
-}catch(PDOException $e){
-    echo "Erreur : " . $e->getMessage();
+        header('Location:liste.php');
+    } catch (PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
     }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,28 +40,41 @@ try{
                 <input type="date" class="form-control" name="date" placeholder="date">
             </div>
 
-
-            
-            <input type="checkbox" name="etage">
-            <label for="etage" placeholder="1">1</label>
-
-            <input type="checkbox" name="etage">
-            <label for="etage" placeholder="2">2</label>
-
-
+            <div class="form-group">
+                <label for="select">Selection de l'étage</label>
+                <select name="etage">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                </select>
+            </div>
 
             <div class="form-group">
-                <label for="position">Position</label>
-                <input type="text" class="form-control" name="position" placeholder="position">
+                <label for="select">Sélection de l'espace</label>
+                <select name="position">
+                    <option value="droite">Droite</option>
+                    <option value="au fond">Au fond</option>
+                    <option value="gauche">Gauche</option>
+                </select>
             </div>
+
             <div class="form-group">
                 <label for="prix">Prix</label>
                 <input type="number" class="form-control" name="prix" placeholder="Prix">
-            </div>            
-                <button type="ajouter" action="liste.php" class="btn btn-primary mt-2">Ajouter</button>
-                <button type="modifier" action="liste.php" class="btn btn-primary mt-2">Modifier</button>
-                <button type="supprimer" action="liste.php" class="btn btn-primary mt-2">Supprimer</button>
             </div>
-        </form>
-    </body>
+            
+            <button name="ajouter" type="ajouter" action="liste.php" class="btn btn-primary mt-2">Ajouter</button>
+
+
+</form>
+</body>
+<a class="btn btn-primary mt-2" href="affiche.php" role="button">Dashbord</a>
 </html>

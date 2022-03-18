@@ -87,3 +87,14 @@ Javascript Supprimer un élément dans le DOM
 Javascript Copier et déplacer un élément dans le DOM
 Javascript modifier les attributs d\'un élément
 Javascript modifier les propriété d\'un élément
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+Jour1:  J'ai réaliser des notes au stylo des consignes de l'exercice ainsi qu un rapide croquis aux stylo de couleurs afin de bien comprendre les différent compartiment du code a crée.
+J'ai ensuite procédé a la création d'un wireframe avenc de commencer mon code.
+J'ai rencontrer des difficulté pour ajouter un utilisateur et même problématique pour ajouter un élément de ma table exo ( en l occurance : une ampoule a l étage )
+Une fois avoir réussie a l'ajouter a ma base de donnée ma problématique était de l'afficher.
+
+Jour2:
