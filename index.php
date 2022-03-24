@@ -1,26 +1,25 @@
 <?php
 require_once 'connexion.php';
- if (isset($_POST['submit'])) {
 
-    echo 'salut';
+
+if (isset($_POST['submit'])) {
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     
 
-    $sth = $pdo->prepare("INSERT * INTO users WHERE username= '$username'");
+    $sth = $pdo->prepare("SELECT * FROM users WHERE username= '$username'");
     $sth->execute();
     $resulte = $sth->fetch();
 
-    print_r($resulte);
     if (password_verify($password, $resulte['password'])) {
         echo 'Le mot de passe est valide !';
+        header('Location:affiche.php');
     } else {
         echo 'Le mot de passe est invalide.';
     } 
 } 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -31,11 +30,15 @@ require_once 'connexion.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="./css/style.css">
     <title>Formulaire d'inscription'</title>
 </head>
 
 <body>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <div class="container">
         <form action="" method="post">
             <div class="form-group">
@@ -48,9 +51,12 @@ require_once 'connexion.php';
             </div>
 
 
-            <button type="submit" action="affiche.php" name="submit" class="btn btn-primary mt-2">Connexion</button>
 
-            <button type="submit" name="submit" action="affiche.php" class="btn btn-primary mt-2">Inscription</button>
+            <button href="affiche.php" type="submit" action="affiche.php" name="submit" class="btn btn-primary mt-2">connexion</button>
+
+            <button type="submit" action="affiche.php" name="submit" class="btn btn-primary mt-2"><a href="inscription.php">Inscription</a></button>
+
+            
     </div>
     </form>
 
@@ -67,8 +73,8 @@ require_once 'connexion.php';
                     <?php
                     foreach ($tableau as $key => $value) {
                     ?><a href="affiche.php"><?php
-                                        echo "Etage $i $position[$key] :<img class='image' src='img/$value'>";
-                                        ?></a><?php
+                                        echo "Etage $i $position[$key] :<img class='image' src='img/$value'>&nbsp;";
+                                        ?></a>&nbsp;&nbsp;&nbsp;<?php
                     } ?>
                 </div>
 
@@ -77,12 +83,9 @@ require_once 'connexion.php';
 
         </div>
     </div>
-    <footer>
+<footer>
 
 
-    </footer>
-   
-
+</footer>
 </body>
-
 </html>

@@ -113,3 +113,8 @@ a ce stade je peut dire que la mise en forme est fini.
 
 jour6:j'ai réussi a crée un boutton pour mettre dans la boucle de ma page principale accompagné d'une image d'ampoule, le boutton est clicable et ce dirige en direction du dashbord ou une intervention est possible par le boutton modifier.
 c'est par la suite qu'une boucle génératrice d'erreur avec un % transformera mes ampoules en rouge pour que clickable elle soit modifiable et donc l'intervention soit faite.
+
+jour7:Aujourd'hui j'ai réussi la connexion utilisateurs et la page inscription.
+j'ai crée une table pour les messages d'intervention.
+j'ai aussi fait un peut de mise en forme comme pour les boutons.
+

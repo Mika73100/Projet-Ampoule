@@ -80,7 +80,7 @@ if (isset($_POST['ajouter'])) {
             
             
             <div class="form-group">
-            <button name="ajouter" type="ajouter" action="liste.php" class="btn btn-sucess">Ajouter</button>
+            <button name="ajouter" type="ajouter" action="liste.php" class="btn btn-success">Ajouter</button>
             
             <a class="btn btn-info" href="affiche.php" role="button">Dashbord</a>
             </div>
