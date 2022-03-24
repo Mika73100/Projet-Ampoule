@@ -2,18 +2,26 @@
 
 require_once 'connexion.php';
 
+
 if (isset($_POST['ajouter'])) {
     try {
-        $prepare = $pdo->prepare("INSERT INTO exo 
-    (date,etage,position,prix) VALUES (:date, :etage, :position, :prix)");
+        //$prepare = $pdo->prepare("INSERT INTO exo (date,etage,prix,position) VALUES ( :date, :etage, :prix, :position");
 
-        $prepare->bindParam(':date', $_POST['date']);
-        $prepare->bindParam(':etage', $_POST['etage']);
-        $prepare->bindParam(':position', $_POST['position']);
-        $prepare->bindParam(':prix', $_POST['prix']);
+        $now = date("d/m/Y H:i:s", time());
+
+
+        $sql = "INSERT INTO exo (date,etage,prix,position) VALUES ('". $now."', ". $_POST['etage'].", ".$_POST['prix'].", '". $_POST['position']."')";
+
+        //error_log($sql);
+        $prepare = $pdo->prepare($sql);
+
+        //$prepare->bindParam(':date', $now, PDO::PARAM_STR); //$_POST['date']
+       // $prepare->bindParam(':etage', $_POST['etage'], PDO::PARAM_STR);
+       // $prepare->bindParam(':positon', $_POST['position'], PDO::PARAM_STR);
+       // $prepare->bindParam(':prix', $_POST['prix'], PDO::PARAM_INT);
         $prepare->execute();
 
-        header('Location:liste.php');
+        header('Location:affiche.php');
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
@@ -29,16 +37,15 @@ if (isset($_POST['ajouter'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Liste des ampoules'</title>
+    <title>Formulaire intervention</title>
 </head>
 
 <body>
     <div class="container">
+        
+        
         <form action="liste.php" method="post">
-            <div class="form-group">
-                <label for="date">Date</label>
-                <input type="date" class="form-control" name="date" placeholder="date">
-            </div>
+        
 
             <div class="form-group">
                 <label for="select">Selection de l'étage</label>
@@ -55,26 +62,29 @@ if (isset($_POST['ajouter'])) {
                     <option value="10">10</option>
                     <option value="11">11</option>
                 </select>
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <label for="select">Sélection de l'espace</label>
                 <select name="position">
                     <option value="droite">Droite</option>
-                    <option value="au fond">Au fond</option>
+                    <option value="fond">Au fond</option>
                     <option value="gauche">Gauche</option>
                 </select>
-            </div>
+            </div><br>
 
             <div class="form-group">
                 <label for="prix">Prix</label>
                 <input type="number" class="form-control" name="prix" placeholder="Prix">
+            </div><br>
+            
+            
+            <div class="form-group">
+            <button name="ajouter" type="ajouter" action="liste.php" class="btn btn-sucess">Ajouter</button>
+            
+            <a class="btn btn-info" href="affiche.php" role="button">Dashbord</a>
             </div>
             
-            <button name="ajouter" type="ajouter" action="liste.php" class="btn btn-primary mt-2">Ajouter</button>
-
-
 </form>
 </body>
-<a class="btn btn-primary mt-2" href="affiche.php" role="button">Dashbord</a>
 </html>

@@ -93,8 +93,23 @@ Javascript modifier les propriété d\'un élément
 //////////////////////////////////////////////////////////////////////////////////////
 
 Jour1:  J'ai réaliser des notes au stylo des consignes de l'exercice ainsi qu un rapide croquis aux stylo de couleurs afin de bien comprendre les différent compartiment du code a crée.
-J'ai ensuite procédé a la création d'un wireframe avenc de commencer mon code.
-J'ai rencontrer des difficulté pour ajouter un utilisateur et même problématique pour ajouter un élément de ma table exo ( en l occurance : une ampoule a l étage )
+J'ai ensuite procédé a la création d'un wireframe avant de commencer mon code.
+J'ai rencontrer des difficultés pour ajouter un utilisateur et même problématique pour ajouter un élément de ma table exo ( en l occurance : une ampoule a l étage )
 Une fois avoir réussie a l'ajouter a ma base de donnée ma problématique était de l'afficher.
 
-Jour2:
+Jour2:Graçe a un tuttoriel j'ai réussi a afficher tous les éléments de mon tableau sous forme de liste.Afin de donner un aspect plus lisible j'ai utiliser une mise en page de type bootstrapp pour donner un effet tableau a mes données.C'est a l'interieur de ce tableau ou j'ai profiter de joindre un bouton supprimer accompagner d'un message de type toast afin de prévenir l'utilisateur de la suppression. J'ai par la suite crée mon fichier supprimer qui pourra une fois cliquer sur le boutton supprimer, effacera l'id de l'insertion.
+
+jour3:Probème rencontrer : je ne donne pas de nom technique a mes pages web du coup aujourd'hui j'ai eu cette problématique que je corrige courant du jours 4.
+J'ai réussie a crée une page détaille qui a pour mission de récupérer tous les éléments de mon formulaire et de les affichers.J'ai rajouter une variable de type long text pour crée un message technique destiné a informer les différents utilisateurs.
+
+jour4:Probème rencontrer : les beugs de la veilles ont été corriger. Aujourd'hui le CRUD fonctionne et le toast s'affiche lors de la suppression d'un utilisateur.J'ai aussi crée un toast pour le modifier, j'ai aussi ajouter la fonctionnalité de ne pas ajouter une intervention a un etage 12 alors que l'immeuble n'a que 11 etages.
+J'ai aussi réussi a crée une validation a modifier et j'ai terminer le crud.
+J'ai encoder le mots de pass des utilisateurs.
+J'ai rajouter l'heure a coté de la date et son historique, ici j'ai appris qu'il est possible d afficher l'heure dans un varchar si dans le php j'ai bien retranscrit a la main les bonnes requets.
+
+jour5:Aujourd'hui j'ai mit en forme ma page principale, celle-ci affiche mon immeuble avec 11etages. Les étages par position et accompagner d'un gif ampoule.
+j'ai aussi crée une boucles pour cela.
+a ce stade je peut dire que la mise en forme est fini.
+
+jour6:j'ai réussi a crée un boutton pour mettre dans la boucle de ma page principale accompagné d'une image d'ampoule, le boutton est clicable et ce dirige en direction du dashbord ou une intervention est possible par le boutton modifier.
+c'est par la suite qu'une boucle génératrice d'erreur avec un % transformera mes ampoules en rouge pour que clickable elle soit modifiable et donc l'intervention soit faite.

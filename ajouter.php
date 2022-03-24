@@ -3,6 +3,9 @@
 require_once 'connexion.php';
 
 
+if (isset( $_POST['password'])){
+$_POST['password']=password_hash($_POST['password'], PASSWORD_DEFAULT);
+
 try{
     $prepare = $pdo->prepare("INSERT INTO users 
     (username,password) VALUES (:username, :password)");
@@ -11,9 +14,11 @@ try{
     $prepare->bindParam(':password', $_POST['password']);
     $prepare->execute();
 
-    header('Location:liste.php');
+    header('Location:affiche.php');
 
 }catch(PDOException $e){
     echo "Erreur : " . $e->getMessage();
     }
+}
+    
 ?>
