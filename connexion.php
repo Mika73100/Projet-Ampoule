@@ -7,7 +7,7 @@ session_start();
     $dbname = "ampoule";
     $user = "root";
     $pass = "";
-
+    
     
 
 try{
