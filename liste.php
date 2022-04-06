@@ -1,24 +1,18 @@
 <?php
 
-require_once 'connexion.php';
+require 'connexion.php';
 
 
 if (isset($_POST['ajouter'])) {
     try {
-        //$prepare = $pdo->prepare("INSERT INTO exo (date,etage,prix,position) VALUES ( :date, :etage, :prix, :position");
+
 
         $now = date("d/m/Y H:i:s", time());
 
 
         $sql = "INSERT INTO exo (date,etage,prix,position) VALUES ('". $now."', ". $_POST['etage'].", ".$_POST['prix'].", '". $_POST['position']."')";
 
-        //error_log($sql);
         $prepare = $pdo->prepare($sql);
-
-        //$prepare->bindParam(':date', $now, PDO::PARAM_STR); //$_POST['date']
-       // $prepare->bindParam(':etage', $_POST['etage'], PDO::PARAM_STR);
-       // $prepare->bindParam(':positon', $_POST['position'], PDO::PARAM_STR);
-       // $prepare->bindParam(':prix', $_POST['prix'], PDO::PARAM_INT);
         $prepare->execute();
 
         header('Location:affiche.php');

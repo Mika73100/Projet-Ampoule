@@ -43,10 +43,10 @@ $resultat = $prepare->fetchAll();
                         foreach ($resultat as $exo) {
                         ?>
                             <tr>
-                                <td><?= $exo['id'] ?></td>
-                                <td><?= $exo['date'] ?></td>
-                                <td><?= $exo['etage'] ?></td>
-                                <td><?= $exo['position'] ?></td>
+                                <td><?= $exo['id'] ?><br></td>
+                                <td><?= $exo['date'] ?><br></td>
+                                <td><?= $exo['etage'] ?><br></td>
+                                <td><?= $exo['position'] ?><br></td>
                                 <td><?= $exo['prix'] ?></td>                             
                                 <td>
 

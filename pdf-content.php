@@ -1,3 +1,17 @@
+
+<?php
+require_once 'connexion.php';
+
+
+$id=$_GET['id'];
+$prepare = $pdo->prepare("SELECT * FROM exo WHERE id=$id");
+$prepare->execute();
+$resultat = $prepare->fetchAll();
+
+require_once 'genpdf.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -21,15 +35,18 @@
             <th>Message</th>
         </thead>
         <tbody>
-                <?php foreach($exo as $details): ?>
+        
+                <?php foreach($resultat as $exo): ?>
+                <?php 
+                $phone = (!(isset($phone)))?'0000':$phone?>
                 
                 <tr>
-                    <td><?= $user['username'] ?></td>
-                    <td><?= $user['phone'] ?></td>
-                    <td><?= $details['date'] ?></td>
-                    <td><?= $details['etage'] ?></td>
-                    <td><?= $details['position'] ?></td>
-                    <td><?= $details['message'] ?></td>
+                    <td><?= $_SESSION['username'] ?></td>
+                    <td><?= $phone ?></td>
+                    <td><?= $exo['date'] ?></td>
+                    <td><?= $exo['etage'] ?></td>
+                    <td><?= $exo['position'] ?></td>
+                    <td><?= $exo['message'] ?></td>
                 </tr>
                 <?php endforeach; ?>
         </tbody>

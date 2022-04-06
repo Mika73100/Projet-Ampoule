@@ -4,9 +4,10 @@ require_once 'connexion.php';
 
 if (isset($_POST['submit'])) {
 
-    $username = $_POST['username'];
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['password'] = $_POST['password'];
     $password = $_POST['password'];
-    
+    $username = $_POST['username'];
 
     $sth = $pdo->prepare("SELECT * FROM users WHERE username= '$username'");
     $sth->execute();

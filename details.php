@@ -65,6 +65,9 @@ $resultat = $prepare->fetchAll();
             
                 <button type="submit" href="affiche.php" class="btn btn-info" ><a href="affiche.php">Retour</a></button>
 
+
+                <button type="button" class="btn btn-info" ><a href="pdf-content.php?id=<?=$id?>">PDF</a></button>
+
                 
                 </div>
                 </form>
